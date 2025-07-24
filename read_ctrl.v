@@ -25,7 +25,7 @@ module read_ctrl(
         ovalid = (tail_o != head);
     end
 
-    //empty condition logic
+    //head pointer update logic
     always @(*) begin
         if (rstout) next_head <= 3'b000;
         else if (ovalid && oready) next_head <= inc_head; //if output line ready and FIFO not empty -> read and increment head
