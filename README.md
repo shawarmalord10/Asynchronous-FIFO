@@ -16,7 +16,9 @@ The asyncfifo module instantiates a dp_ram for data storage. The write_ctrl modu
 
 ### Design Choices
 <ins>FIFO RAM (dp_ram.v)</ins> <br>
-The memory block implemented is an 8x8 synchronous write, asynchronous read dual-port RAM. This means data is written on the positive edge of the input/sender clock (clkin), while data can be read combinatorially from any address at any time. This specific type of RAM was chosen as it aligns with common asynchronous FIFO design patterns and was a direct reference from "Digital Design Using VHDL: A Systems Approach". While other approaches, such as fully asynchronous dual-port RAMs that latch data, exist (as seen in University of Oslo IN3160/IN4160 lecture slides), the synchronous write/asynchronous read model offered a straightforward and effective solution for the initial implementation. Future work may explore the fully asynchronous RAM for comparison.
+The memory block implemented is an 8x8 synchronous write, asynchronous read dual-port RAM. This means data is written on the positive edge of the input/sender clock (clkin), while data can be read combinatorially from any address at any time. 
+
+This specific type of RAM was chosen as it aligns with common asynchronous FIFO design patterns and was a direct reference from "Digital Design Using VHDL: A Systems Approach". While other approaches, such as fully asynchronous dual-port RAMs that latch data, exist (as seen in University of Oslo IN3160/IN4160 lecture slides), the synchronous write/asynchronous read model offered a straightforward and effective solution for the initial implementation. Future work may explore the fully asynchronous RAM for comparison.
 <br>  
 
 <ins>Full and Empty Logic</ins> <br>
