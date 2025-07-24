@@ -25,8 +25,7 @@ This specific type of RAM was chosen as it aligns with common asynchronous FIFO 
 - The implemented full and empty logic utilizes 3-bit write (tail) and read (head) pointers.
 * The empty condition is detected when the write pointer (tail) is equal to the synchronized read pointer in the write domain (head_i).
 + The full condition is detected when the synchronized read pointer in the write domain (head_i) is equal to the incremented value of the current write pointer (inc_tail).
-This "one-empty-location" scheme is a simple and reliable method for asynchronous FIFO control. A known drawback of this approach is that one RAM location will always remain unused to distinguish between the full and empty states. My primary objective was to achieve a functional and understandable solution, leading to the selection of this simpler logic. Alternative solutions, such as using an (N+1)-bit pointer for a 2 
-N
+This "one-empty-location" scheme is a simple and reliable method for asynchronous FIFO control. A known drawback of this approach is that one RAM location will always remain unused to distinguish between the full and empty states. My primary objective was to achieve a functional and understandable solution, leading to the selection of this simpler logic. Alternative solutions, such as using an (N+1)-bit pointer for a 2<sup>N</sup>
   depth FIFO (as described by Clifford E. Cummings) or employing dedicated state flip-flops, can utilize all memory locations and will be considered for future enhancements.
 
 # Simulation Waveform
